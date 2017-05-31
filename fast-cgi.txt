@@ -1,0 +1,8 @@
+问题：今天在本地调试时，发现curl怎么访问都是超时的。
+
+环境：windows+nginx+php5.6+mysql
+
+原因：php+nginx nginx请求都是keep-alive形式，当访问时php-cgi已经被占用了，再发起curl访问本地,一直等待，就会造成curl超时无响应
+
+解决方法	命令行开启新的php-cgi
+php-cgi.exe -b 127.0.0.1:9001 -c D:\phpStudy\php55n\php.ini
