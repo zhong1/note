@@ -1,0 +1,9 @@
+Mysql 执行INSERT UPDATE DELETE操作后，返回受影响行数
+
+	found_rows() : SELECT
+	row_count()  : INSERT UPDATE DELETE
+
+	EX:
+		$stmt=$pdo->prepare($SQL);
+		$stmt->execute();
+		$count = $stmt->rowCount();//删除行数
