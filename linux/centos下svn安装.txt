@@ -1,0 +1,64 @@
+说明:centos下安装svn
+
+1、sudo yum install subversion
+
+2、查看安装目录以及是否安装成功
+which svnserve
+
+/usr/bin/svnserve
+
+
+svnserve --version
+
+svnserve, version 1.6.11 (r934486)
+   compiled Aug 17 2015, 08:21:51
+
+Copyright (C) 2000-2009 CollabNet.
+Subversion is open source software, see http://subversion.tigris.org/
+This product includes software developed by CollabNet (http://www.Collab.Net/).
+
+The following repository back-end (FS) modules are available:
+
+* fs_base : Module for working with a Berkeley DB repository.
+* fs_fs : Module for working with a plain file (FSFS) repository.
+
+Cyrus SASL authentication is available.
+
+3、建立版本库
+svnadmin create /opt/svn/code
+
+4、配置用户
+
+4.1、编辑用户文件passwd，新增两个用户 admin test
+	vi /opt/svn/code/conf/passwd
+	[users]
+	admin = admin
+	guest = guest
+
+4.2、编辑权限文件authz，用户admin设置可读写权限，guest设置只读权限。
+	vi /opt/svn/code/conf/authz
+	[/]
+	admin = rw
+	guest = r
+
+4.3、编辑svnserve.conf：
+	vi /opt/svn/code/conf/svnserve.conf
+	[general]
+	anon-access = none                     #控制非鉴权用户访问版本库的权限
+	auth-access = write                    #控制鉴权用户访问版本库的权限
+	password-db = passwd                   #指定用户名口令文件名
+	authz-db = authz                       #指定权限配置文件名
+	realm = spring-hello-world             #指定版本库的认证域，即在登录时提示的认证域名称
+
+5、启动服务
+	svnservice -d -r /opt/svn/
+	查看启动结果
+	ps -aux | grep svn
+	netstat -tnlp
+	
+	ping下测试是否通
+
+PS：以上修改文件，注意开头不能留空，不然客户端链接会报错的
+
+
+	
