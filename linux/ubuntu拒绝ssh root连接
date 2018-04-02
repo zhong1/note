@@ -1,0 +1,26 @@
+安装完ubuntu之后，发现无使用xshell无法连接；
+看了一下，果然发现没有安装ssh服务，然后就屁颠屁颠的安装了openssh-server
+apt-get install openssh-server
+
+查看一下
+ps -aux | grep ssh
+
+然后普通用户就可以远程连接了，发现root还是不行；
+
+查了一下，需要修改/etc/ssh/sshd_config
+
+#sudo vi /etc/ssh/sshd_config
+找到并用#注释掉这行：PermitRootLogin prohibit-password
+新建一行 添加：PermitRootLogin yes
+
+重启服务
+#sudo service ssh restart
+
+
+解读一下这两句话吧！
+PermitRootLogin yes
+允许root登录，设为yes。
+PermitRootLogin prohibit-password 
+
+允许root登录，但是禁止root用密码登录
+很明显这行是需要被注释掉的！！！
