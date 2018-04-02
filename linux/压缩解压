@@ -1,0 +1,20 @@
+tar命令:
+(归档命令：归档命令一般和压缩命令、解压缩命令一起使用)
+(c--creat;v--显示过程 f--文件路径 ）
+（tar是打包不是压缩，另外文件路径可以是相对路径也可以是绝对路径）
+
+
+打包.tar：
+　　tar -cvf filename.tar 
+打包压缩成.tar.gz文件
+　　tar -cvzf filename.tar.gz
+打包压缩成.tar.bz2文件
+　　tar -cvjf filename.tar.bz2
+
+
+解压.tar：
+　　tar -xvf filename.tar
+解压.tar.gz文件
+　　tar -xvzf filename.tar.gz 
+解压.tar.bz2文件
+　　tar -xvjf filename.tar.bz2
