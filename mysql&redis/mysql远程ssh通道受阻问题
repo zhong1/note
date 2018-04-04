@@ -7,7 +7,8 @@
 
 解决方案如下：
 1、进入 /etc/ssh/sshd_config 在最下面 加入下面代码
-KexAlgorithms diffie-hellman-group1-sha1,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1 Ciphers 3des-cbc,blowfish-cbc,aes128-cbc,aes128-ctr,aes256-ctr
+KexAlgorithms diffie-hellman-group1-sha1,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
+Ciphers 3des-cbc,blowfish-cbc,aes128-cbc,aes128-ctr,aes256-ctr
 
 2、执行下面代码
 ssh-keygen -A
@@ -17,4 +18,4 @@ service ssh restart
 
 
 
-转载自：https://www.jianshu.com/p/200572ed066c
+转载自：https://www.cnblogs.com/yidiandhappy/p/7404674.html
