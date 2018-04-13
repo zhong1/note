@@ -1,0 +1,18 @@
+为什么会跨域：
+  ....
+
+1.jsonp
+  jsonp问题：使用jsonp的时候，只有get 类型可用，即使设置了 post类型，还是使用的 get 
+
+
+2.nginx配置
+
+
+
+3.服务端代码
+// 指定允许其他域名访问  
+header('Access-Control-Allow-Origin:*');  
+// 响应类型  
+header('Access-Control-Allow-Methods:*');  
+// 响应头设置  
+header('Access-Control-Allow-Headers:x-requested-with,content-type'); 
