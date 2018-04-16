@@ -4,7 +4,7 @@
 文档结构
 --
 ==
-#linux
-  ##.vimrc
-  ##centos下svn安装.txt
-  ##ubuntu拒绝ssh root连接
+linux
+  <a href='https://github.com/zhong1/note/blob/master/linux/.vimrc'>.vimrc</a>
+  centos下svn安装.txt
+  ubuntu拒绝ssh root连接
