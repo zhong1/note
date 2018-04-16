@@ -18,3 +18,19 @@ mysql&redis</br>
 　<a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql_pdo%E8%BF%94%E5%9B%9E%E5%8F%97%E5%BD%B1%E5%93%8D%E8%A1%8C%E6%95%B0.txt5'>mysql_pdo返回受影响行数.txt</a></br>
 　<a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql%E8%BF%9C%E7%A8%8Bssh%E9%80%9A%E9%81%93%E5%8F%97%E9%98%BB%E9%97%AE%E9%A2%98'>mysql远程ssh通道受阻问题</a></br>
 　<a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.txt'>redis常用操作.txt</a></br>
+
+nginx</br>
+　<a href='https://github.com/zhong1/note/blob/master/nginx/curl%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%80%E7%9B%B4%E7%AD%89%E5%BE%85%E5%8E%9F%E5%9B%A0.txt'>curl本地文件一直等待原因.txt</a></br>
+　<a href='https://github.com/zhong1/note/blob/master/nginx/%E7%AE%80%E8%BF%B0FastCGI%EF%BC%8CPHP-CGI%2CPHP-FPM%E5%85%B3%E7%B3%BB.doc'>简述FastCGI，PHP-CGI,PHP-FPM关系.doc</a></br>
+
+php</br>
+　<a href='https://github.com/zhong1/note/tree/master/php/cutFileUpload'>文件分块上传小案例</a></br>
+　<a href='https://github.com/zhong1/note/tree/master/php/push_kindle'>kendle电子书邮件推送程序</a></br>
+　<a href='https://github.com/zhong1/note/blob/master/php/chunk_excel.php'>增加分块导入excel数据</a></br>
+　<a href='https://github.com/zhong1/note/blob/master/php/debian%E5%AE%89%E8%A3%85swoole%E6%89%A9%E5%B1%95.txt'>debian安装swoole扩展.txt</a></br>
+　<a href='https://github.com/zhong1/note/blob/master/php/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3PHP%E5%8E%9F%E7%90%86%E4%B9%8BOpcodes'>深入理解PHP原理之Opcodes</a></br>
+　<a href='https://github.com/zhong1/note/blob/master/php/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98'>跨域问题</a></br>
+
+
+
+
