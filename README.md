@@ -32,5 +32,7 @@ php</br>
 　<a href='https://github.com/zhong1/note/blob/master/php/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98'>跨域问题</a></br>
 
 
-
+socket</br>
+　<a href='https://github.com/zhong1/note/blob/master/socket/chat.php'>chat.php</a></br>
+　<a href='https://github.com/zhong1/note/blob/master/socket/service.php'>service.php</a></br>
 
