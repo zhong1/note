@@ -11,6 +11,7 @@
 >><a href='https://github.com/zhong1/note/blob/master/linux/ubuntu%E6%97%A0%E5%AF%86%E7%A0%81'>ubuntu无密码</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/linux/vi_replace.txt'>vi_replace.txt</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/linux/%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B'>压缩解压</a></br>
+>><a href='https://github.com/zhong1/note/blob/master/linux/awk%E5%88%86%E5%89%B2%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2'>awk分割特定字符串</a></br>
 
 ><a href='https://github.com/zhong1/note/tree/master/mysql&redis'>`mysql&redis`</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/Mysql_pdo%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95.txt'>Mysql_pdo常见操作方法.txt</a></br>
