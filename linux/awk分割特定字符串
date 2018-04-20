@@ -1,0 +1,3 @@
+grep EventKeyqrscene_2000 wx.log.20180415 |awk -F '|' '{print $2}'
+
+左边查询出符合条件字符串，右边分割输出第二个列；
