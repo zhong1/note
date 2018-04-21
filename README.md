@@ -5,7 +5,7 @@
 --
 
 ><a href='https://github.com/zhong1/note/tree/master/business'>`business`</a></br>
->><a href='https://github.com/zhong1/note/blob/master/business/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF'>秒杀系统架构优化思路c</a></br>
+>><a href='https://github.com/zhong1/note/blob/master/business/%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF'>秒杀系统架构优化思路</a></br>
 
 
 ><a href='https://github.com/zhong1/note/tree/master/linux'>`linux`</a></br>
