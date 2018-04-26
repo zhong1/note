@@ -1,0 +1,102 @@
+最近在整接口对接；对方用的是java,里面用到了RSA加密模式，接口方直接丢了个RSA.java文件过来；
+
+里面有段代码是这样的：
+  public static Keys generate() {
+        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        try {
+            KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA", "BC");
+            generator.initialize(2048, new SecureRandom());
+            KeyPair pair = generator.generateKeyPair();
+            PublicKey publicKey = pair.getPublic();
+            PrivateKey privateKey = pair.getPrivate();
+            return new Keys(new String(Base64.encode(privateKey.getEncoded())), new String(Base64.encode(publicKey.getEncoded())));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    ===========================================================
+    自己就百度+文档写了一个php的，发现加密结果不一致；
+    
+    /**
+    * RSACrypt
+    * RSA加密解密
+    */
+    class RsaCrypt{
+
+        /**
+         * 私钥加密
+         * @param  string $Str        加密字符串
+         * @param  string $PrivateKey 私钥
+         * @return string             base64转码的签名数据
+         */
+        public static function encryptPrivate($Str, $PrivateKey){
+
+            if (!openssl_pkey_get_private($PrivateKey)) {
+                //将字符串分块
+                //加上标准头尾标签
+                $PrivateKey = self::transJavaRsaKeyToPhpOpenSSL($PrivateKey);
+                $PrivateKey = self::appendFlags($PrivateKey, false);
+            }
+
+            $Res = openssl_pkey_get_private($PrivateKey);
+            if ($Res) {
+                // $Str = str_pad($Str, 256, "\0", STR_PAD_LEFT);
+
+                if (openssl_private_encrypt($Str, $EncryptRes, $Res)) {
+                    return base64_encode($EncryptRes);
+                }
+            }
+
+            return false;
+        }
+
+        private static function transJavaRsaKeyToPhpOpenSSL($content) {
+            if ($content) {
+                return trim(chunk_split($content, 64, "\n"));
+            } 
+            return false;
+        }
+
+        private static function appendFlags($content, $isPublic = true){
+            if ($isPublic) {
+                return "-----BEGIN PUBLIC KEY-----\n" . $content . "\n-----END PUBLIC KEY-----\n";
+            } 
+            else {
+                return "-----BEGIN PRIVATE KEY-----\n" . $content . "\n-----END PRIVATE KEY-----\n";
+            }
+        }
+    }
+    
+    找到了这篇文章：https://www.felix021.com/blog/read.php?2169；发现问题是差不多的，去官网看了下openssl_private_encrypt的OPENSSL_NO_PADDING形式；
+    
+    For a 1024 bit key length => encrypted number of raw bytes is always a block of 128 bytes (1024 bits) by RSA design.
+    For a 2048 bit key length => encrypted number of raw bytes is always a block of 256 bytes (2048 bits) by RSA design.
+    
+    然后就手动填充了ASCII 0;不全256字节就解决了
+    $Str = str_pad($Str, 256, "\0", STR_PAD_LEFT);
+    
+     public static function encryptPrivate($Str, $PrivateKey){
+
+            if (!openssl_pkey_get_private($PrivateKey)) {
+                //将字符串分块
+                //加上标准头尾标签
+                $PrivateKey = self::transJavaRsaKeyToPhpOpenSSL($PrivateKey);
+                $PrivateKey = self::appendFlags($PrivateKey, false);
+            }
+
+            $Res = openssl_pkey_get_private($PrivateKey);
+            if ($Res) {
+                $Str = str_pad($Str, 256, "\0", STR_PAD_LEFT);
+
+                if (openssl_private_encrypt($Str, $EncryptRes, $Res, OPENSSL_NO_PADDING)) {
+                    return base64_encode($EncryptRes);
+                }
+            }
+
+            return false;
+        }
+    
+    
