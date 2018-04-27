@@ -32,16 +32,19 @@
 		}
 
 		/**
-		 * [decrypt des解密]
+		 * [decryptDES des解密]
 		 * @param  strin $Str 解密字符串
 		 * @param  string $Key 密钥
 		 * @return string      解密后字符串
 		 */
-		public function decrypt($Str, $Key)  {    
-		    $Str = mcrypt_decrypt(MCRYPT_DES, $Key, $Str, MCRYPT_MODE_ECB);  
-		    $Block = mcrypt_get_block_size('des', 'ecb');  
-		    $Pad = ord($Key[($Len = strlen($Str)) - 1]);  
-		    return substr($Str, 0, strlen($Str) - $Pad);  
-		} 
+		public function decryptDES($Str, $Key)  {   
+			$Str = pack("H*", $Str);
+			$Str = mcrypt_decrypt(MCRYPT_DES, $Key, $Str, MCRYPT_MODE_ECB);
+
+			$Len = strlen($Str);
+			$Block = mcrypt_get_block_size('des', 'ecb');
+			$Pad = ord($Str[$Len - 1]);
+			return substr($Str, 0, $Len - $Pad);
+		}
 	}
   ```
