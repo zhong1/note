@@ -25,7 +25,7 @@
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql_pdo%E8%BF%94%E5%9B%9E%E5%8F%97%E5%BD%B1%E5%93%8D%E8%A1%8C%E6%95%B0.txt5'>mysql_pdo返回受影响行数.txt</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql%E8%BF%9C%E7%A8%8Bssh%E9%80%9A%E9%81%93%E5%8F%97%E9%98%BB%E9%97%AE%E9%A2%98'>mysql远程ssh通道受阻问题</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.txt'>redis常用操作.txt</a></br>
->><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF'>redis使用场景</a></br>
+>><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.md'>redis使用场景</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql-case%20when-then'>mysql-case when-then</a></br>
 
 
