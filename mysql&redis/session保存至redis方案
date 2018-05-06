@@ -1,5 +1,4 @@
 php实现session保存至redis方案
-===
 
 首先我们要知道，php的session是默认是已文件的方式进行保存的；
 
