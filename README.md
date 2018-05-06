@@ -27,7 +27,7 @@ INDEX
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.txt'>redis常用操作.txt</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.md'>redis使用场景</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql-case%20when-then'>mysql-case when-then</a></br>
-
+>><a href='https://github.com/zhong1/note/blob/master/mysql&redis/session%E4%BF%9D%E5%AD%98%E8%87%B3redis%E6%96%B9%E6%A1%88'>session保存至redis方案</a></br>
 
 
 ><a href='https://github.com/zhong1/note/tree/master/nginx'>`nginx`</a></br>
