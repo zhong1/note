@@ -28,7 +28,7 @@ INDEX
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF.md'>redis使用场景</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/mysql-case%20when-then'>mysql-case when-then</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/mysql&redis/session%E4%BF%9D%E5%AD%98%E8%87%B3redis%E6%96%B9%E6%A1%88'>session保存至redis方案</a></br>
-
+>><a href='https://github.com/zhong1/note/blob/master/mysql%26redis/redis%E7%B1%BB'>redis常用操作类</a></br>
 
 ><a href='https://github.com/zhong1/note/tree/master/nginx'>`nginx`</a></br>
 >><a href='https://github.com/zhong1/note/blob/master/nginx/curl%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E4%B8%80%E7%9B%B4%E7%AD%89%E5%BE%85%E5%8E%9F%E5%9B%A0.txt'>curl本地文件一直等待原因.txt</a></br>
