@@ -12,5 +12,11 @@ tar -zxvf redis-4.0.9.tar.gz
 #进入目录  
 cd redis-4.0.9/  
 
-# 编译安装Redis  
+#编译安装Redis  
 make PREFIX=/user/local/redis/redis-4.0.9 install
+
+#启动redis
+./redis-server /path/to/redis.conf
+
+#关闭redis
+redis-cli -h IP -p PORT shutdown
