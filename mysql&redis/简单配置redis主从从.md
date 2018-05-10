@@ -17,7 +17,7 @@ daemonize yes
 protected-mode no  
 
 #注释以下内容开启远程访问  
-# bind 127.0.0.1  
+bind 127.0.0.1  
 
 #修改启动端口为6379,最好对应你的目录名  
 port 6379  
