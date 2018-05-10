@@ -1,7 +1,0 @@
-select *,
-case `Status`
-when '1' then '可用'
-when '2' then '已用'
-when '3' then '销户'
-else '' end 
-from number where ServiceNum = '17070040266';
