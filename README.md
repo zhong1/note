@@ -40,7 +40,8 @@ INDEX
 
 
 
-><a href='https://github.com/zhong1/note/tree/master/php'>`php`</a>  
+><a href='https://github.com/zhong1/note/tree/master/php'>`php`</a> 
+>><a href='https://github.com/zhong1/note/blob/master/php/lnmp环境搭建'>lnmp环境搭建</a>  
 >><a href='https://github.com/zhong1/note/tree/master/php/cutFileUpload'>文件分块上传小案例</a>  
 >><a href='https://github.com/zhong1/note/tree/master/php/push_kindle'>kendle电子书邮件推送程序</a>  
 >><a href='https://github.com/zhong1/note/blob/master/php/chunk_excel.php'>增加分块导入excel数据</a>  
