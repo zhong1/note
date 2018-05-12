@@ -1,0 +1,98 @@
+#lnmp环境搭建  
+
+linux安装ubuntu16  
+略  
+
+nginx安装  
+#更新源列表  
+sudo apt-get update  
+
+1：安装 Nginx  
+	sudo apt-get install nginx   
+
+	/************************************nginx配置信息查看,可以跳过这段**************************************/
+	#查找nginx位置  
+	whereis nginx
+
+	#查看nginx是否启动
+	ps -aux | grep nginx
+
+	#看看nginx配置信息 nginx.conf  
+	#访问日志错误日志位置  
+	access_log /var/log/nginx/access.log;  
+	error_log /var/log/nginx/error.log;  
+
+	#引入其他文件夹下的配置    建议在sites-enabled下配置网站信息；例:www.test.cn.conf
+	include /etc/nginx/conf.d/*.conf;  
+	include /etc/nginx/sites-enabled/*;  
+
+	#打开conf.d文件夹发现里面是空的，再打开sites-enabled，发现里面配置了default  所以建议在此处放网站配置  
+	#默认网址目录
+	root /var/www/html
+
+	/************************************nginx配置信息查看,可以跳过这段**************************************/
+
+	#查看80端口状态  
+	netstat -anp | grep 80  
+
+	#如果ngixn启动，启动nginx  
+	sudo service nginx start  
+
+
+2：安装php  
+
+	#apt-get install安装php7.1时
+	sudo apt-get install php7.1
+
+		弹出如下错误信息：  
+			E: Unable to locate package php7.1  
+			E: Couldn't find any package by glob 'php7.1'  
+			E: Couldn't find any package by regex 'php7.1'  
+		大概就是说，php7.1不在ubuntu的软件库里面 那就从ppa软件源添加再安装
+		
+	sudo add-apt-repository ppa:ondrej/php  
+		  ps：如果发现报：sudo: apt-add-repository: command not found
+		  sudo apt-get install software-properties-common python-software-properties  
+		  
+	sudo apt-get update  
+	sudo apt-get install php7.1 php7.1-fpm  
+
+	#安装完成可以使用php -v查看信息
+	php -v
+
+	#然后再默认网站新建index.php，浏览器访问http://192.168.179.130/index.php，发现文件被直接下载了；
+	#这是因为nginx不能识别php文件，当web服务器能识别文件类型时，默认处理为下载
+
+	#添加nginx和php关联
+
+	location ~ \.php$ {  
+	    include snippets/fastcgi-php.conf;  
+	    # With php7.0-cgi alone:  
+	    # fastcgi_pass 127.0.0.1:9000;  
+	    # With php7.0-fpm:  
+	    fastcgi_pass unix:/run/php/php7.1-fpm.sock;  
+	}  
+
+	sudo service nginx restart
+	#然后再访问就可以了
+	#php重启命令  
+	/etc/init.d/php7.1-fpm restart  
+	
+	
+3：  mysql安装  
+
+	使用命令 
+	sudo apt-get –y install mysql-server mysql-client php7.1-mysql
+
+	第三个是 PHP的 MySQL扩展。
+	安装过程中会让你为 MySQL root用户设置密码。
+
+	#查看是否启动  
+	netstat -anp | grep 3306
+
+
+	#在index.php测试mysql连接
+
+	#在命令行登录，创建一个库
+	CREATE DATABASE IF NOT EXISTS test DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+	$dbh = new PDO('mysql:host=localhost;dbname=test', $user, $pass);
