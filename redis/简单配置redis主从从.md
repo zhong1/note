@@ -27,7 +27,7 @@ pidfile /var/run/redis_6379.pid  
 
 ## 方案一：配置文件设置主从
 #设置当本机为slav服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master进行数据同步  
-slaveof <masterip> <masterport>
+slaveof <masterip> <masterport>  
     
 #当master服务设置了密码保护时，slav服务连接master的密码  
 masterauth <master-password>  
