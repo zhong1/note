@@ -24,7 +24,8 @@ INDEX
 >><a href='https://github.com/zhong1/note/blob/master/mysql/mysql order by排序字符串问题'>mysql order by排序字符串问题</a>  
 >><a href='https://github.com/zhong1/note/blob/master/mysql/mysql_pdo返回受影响行数.txt'>mysql_pdo返回受影响行数.txt</a>  
 >><a href='https://github.com/zhong1/note/blob/master/mysql/mysql远程ssh通道受阻问题'>mysql远程ssh通道受阻问题</a>  
->><a href='https://github.com/zhong1/note/blob/master/mysql/mysql-case when-then'>mysql-case when-then</a></br>
+>><a href='https://github.com/zhong1/note/blob/master/mysql/mysql-case when-then'>mysql-case when-then</a>  
+>><a href='https://github.com/zhong1/note/blob/master/mysql/sql_dict.php'>mysqli生成数据字典</a></br>  
 
 ><a href='https://github.com/zhong1/note/tree/master/redis'>`redis`</a>  
 >><a href='https://github.com/zhong1/note/blob/master/redis/redis常用操作.txt'>redis常用操作.txt</a>  
