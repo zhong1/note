@@ -24,8 +24,8 @@ function sendMsg($AccessToken, $OPENID, $TemplateID, $Content)
 $Limit = 1000;
 $TemplateList = MYgetTemplate($Limit);
 foreach ($TemplateList as $Template) {
-	$AccessToken = "FES12yHiKDqbWBP-gJVYVOXnudvJ57YqqOBzIeG-Kb3XmhhxjQNh8fudGv_dtvxP4bShRLK76BtOGBwXmVXPtfqmMplNKx5YAb9-6YBpISq_LqEci3jARMlKVHNAQelMWWOiABAQQI";
-	$OPENID = "oh_3AvyZDa2ZDgmZoLOmdYA6_m-0";
+	$AccessToken = "";
+	$OPENID = "";
 
 	$res = sendMsg($AccessToken,$OPENID,trim($Template['TemplateID']),$Template['Content']);
 	print_r($res);die;
