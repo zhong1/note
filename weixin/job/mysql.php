@@ -1,5 +1,5 @@
 <?php
-	$mysql = new PDO("mysql:host=localhost;dbname=test","root","root"); 
+	$mysql = new PDO("mysql:host=;dbname=test","",""); 
 	$mysql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$mysql->exec('set names utf8');
 
