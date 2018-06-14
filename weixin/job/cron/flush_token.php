@@ -11,8 +11,8 @@
 		return httpGet($URL);
 	}
 
-	$APPID = "wxc74675bc43c6801c";
-	$APPSECRET = "d4624c36b6795d1d99dcf0547af5443d";
+	$APPID = "";
+	$APPSECRET = "";
 	$Res = getWXAccesToken($APPID, $APPSECRET);
 	$Result = stringToObj($Res);
 
