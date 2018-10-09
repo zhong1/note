@@ -1,0 +1,99 @@
+1.安装mysql
+	1.1:下载mysql的repo源 选择对应系统【http://repo.mysql.com/】
+		wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+
+	1.2：安装mysql-community-release-el7-5.noarch.rpm包
+		rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+	1.3：安装MYSQL
+		sudo yum install -y  mysql-server
+
+	1.4：更改MYSQL用户权限
+		sudo chown -R root:root /var/lib/mysql
+
+	1.5：重启服务
+		systemctl restart mysql.service
+
+	1.6：登录，并修改密码：
+		mysql -u root
+		use mysql;
+		update user set password=password('root') where user='root';
+		flush privileges;
+
+
+2.nginx安装
+	2.1下载对应当前系统版本的nginx包	【http://nginx.org/packages/】
+		wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+	2.2建立nginx的yum仓库
+		rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+	2.3下载并安装nginx
+		yum install -y nginx
+
+	2.4nginx启动
+		systemctl start nginx.service
+
+3.安装php
+	3.1，下载对应的源	【https://dl.fedoraproject.org/pub/】
+		rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+		rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+
+	3.2 查看
+		yum search php71w
+
+	3.3 安装php以及扩展 
+		yum install php71w php71w-fpm php71w-cli php71w-common php71w-devel php71w-gd php71w-pdo php71w-mysql php71w-mbstring php71w-bcmath 
+
+	3.4 开启服务
+		service php-fpm start
+
+	3.5 修改/etc/nginx/nginx.conf  使其支持php
+
+	3.6 重启nginx
+		service nginx restart
+
+
+
+	FAQ：如果访问出现file not found
+			检查nginx,php启动用户是否一致，设置为www用户即可
+			vi /etc/php-fpm.d/www.conf
+				user www
+				group www
+
+			vi /etc/nginx/nginx.conf
+				user www www
+
+4.安装redis
+	4.1 yum install redis
+
+	4.2修改配置 
+		vi /etc/redis.conf
+		//daemonize yes 后台运行
+		//appendonly yes 数据持久化
+		service redis start
+
+	4.3 安装php-redis扩展
+
+		wget http://101.96.10.64/pecl.php.net/get/redis-3.1.3.tgz
+		tar -zxvf redis-3.1.3.tgz
+		cd redis-3.1.3
+		phpize
+		./configure --with-php-config=/usr/local/php7/bin/php-config 	
+
+		make && make install
+		vim /usr/local/php7/etc/php.ini
+		#添加extension = redis.so
+		php -m | grep redis
+		#查看是否支持redis
+
+
+		FAQ：
+			php-config路径可以通过whereis php-config查找，跟phpize目录一致
+			可能会出现：configure: error: no acceptable C compiler found in $PATH，安装gcc即可	yum install gcc
+
+
+
+
+
+
