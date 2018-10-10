@@ -16,6 +16,7 @@ INDEX
 >><a href='https://github.com/zhong1/note/blob/master/linux/vi_replace.txt'>vi_replace.txt</a>  
 >><a href='https://github.com/zhong1/note/blob/master/linux/压缩解压'>压缩解压</a>  
 >><a href='https://github.com/zhong1/note/blob/master/linux/awk分割特定字符串'>awk分割特定字符串</a>  
+>><a href='https://github.com/zhong1/note/blob/master/linux/centos%E4%B8%8Blnmp%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA'>centos下lnmp环境搭建</a>  
 
 
 
@@ -38,7 +39,7 @@ INDEX
 ><a href='https://github.com/zhong1/note/tree/master/nginx'>`nginx`</a>  
 >><a href='https://github.com/zhong1/note/blob/master/nginx/curl本地文件一直等待原因.txt'>curl本地文件一直等待原因.txt</a>  
 >><a href='https://github.com/zhong1/note/blob/master/nginx/简述FastCGI，PHP-CGI,PHP-FPM关系.doc'>简述FastCGI，PHP-CGI,PHP-FPM关系.doc</a>  
-
+>><a href='https://github.com/zhong1/note/blob/master/nginx/https%E9%85%8D%E7%BD%AE.md'>https配置</a>  
 
 
 ><a href='https://github.com/zhong1/note/tree/master/php'>`php`</a> 
