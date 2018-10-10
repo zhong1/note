@@ -1,0 +1,98 @@
+nginx 	->fastcig 	-> php-fmp master	-> worker;
+
+
+nignx配置简单说明：
+
+    server {    
+
+    	#监听80端口，接收http请求
+    	listen       80; 
+
+        #就是网站地址
+        server_name  www.example.com; 
+        # 准备存放代码工程的路径
+        root /usr/local/etc/nginx/www/huxintong_admin;
+        
+        #路由到网站根目录www.example.com时候的处理
+        location / {        
+            #跳转到www.example.com/index.php
+
+            index index.php; 
+            autoindex on;
+        }   
+
+        #当请求网站下php文件的时候，反向代理到php-fpm
+        location ~ \.php$ {        
+            #加载nginx的fastcgi模块
+            include /usr/local/etc/nginx/fastcgi.conf; 
+            fastcgi_intercept_errors on;      
+
+            #nginx fastcgi进程监听的IP地址和端口
+            fastcgi_pass   127.0.0.1:9000;
+        }
+
+    }
+
+大概流程：
+    www.example.com        
+            |
+            |
+           Nginx        
+            |
+            |
+    路由到www.example.com/index.php        
+            |
+            |
+    加载nginx的fast-cgi模块        
+            |
+            |
+    fast-cgi监听127.0.0.1:9000地址        
+            |
+            |
+    www.example.com/index.php请求到达127.0.0.1:9000
+            |
+            |
+    等待处理.....
+
+
+
+再来看php-fpm配置的文件 fpm模块监听127.0.0.1:9000端口
+    listen = 127.0.0.1:9000
+
+完整流程：
+    www.example.com        
+        |
+        |
+      Nginx        
+        |
+        |
+    路由到www.example.com/index.php        
+        |
+        |
+    加载nginx的fast-cgi模块        
+        |
+        |
+    fast-cgi监听127.0.0.1:9000地址        .
+        |
+        |
+   www.example.com/index.php请求到达127.0.0.1:9000
+        |
+        |
+  php-fpm 监听127.0.0.1:9000
+        |
+        |
+  php-fpm 接收到请求，启用worker进程处理请求        
+        |
+        |
+   php-fpm 处理完请求，返回给nginx        
+        |
+        |
+    nginx将结果通过http返回
+
+FAQ：
+    php 与 nginx 一般是通过Ip socket 或者文件socket进行通信
+
+    nginx启动后，一般会产生一个master和多个worker进程(可配置成单进程),master接受外界信号,向worker发送
+    信号,监控worker运行状态，worker数一般与cpu核数相等。
+
+    php-fpm一般会起一个master和多个worker进程，master收到请求在wroker中进行工作(worker进程包含php解释器)
