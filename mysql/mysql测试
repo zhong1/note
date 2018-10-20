@@ -1,0 +1,63 @@
+1.模拟数据生成
+	-- 创建内存表
+	CREATE TABLE `vote_record_memory` (
+	    `id` INT (11) NOT NULL AUTO_INCREMENT,  
+	    `user_id` VARCHAR (20) NOT NULL,  
+	    `vote_id` INT (11) NOT NULL,  
+	    `group_id` INT (11) NOT NULL,  
+	    `create_time` datetime NOT NULL,  
+	    PRIMARY KEY (`id`),  
+	    KEY `index_id` (`user_id`) USING HASH  
+	) ENGINE = MEMORY AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
+
+	-- 创建普通表
+	CREATE TABLE `vote_record` (  
+	    `id` INT (11) NOT NULL AUTO_INCREMENT,  
+	    `user_id` VARCHAR (20) NOT NULL,  
+	    `vote_id` INT (11) NOT NULL,  
+	    `group_id` INT (11) NOT NULL,  
+	    `create_time` datetime NOT NULL,  
+	    PRIMARY KEY (`id`),  
+	    KEY `index_user_id` (`user_id`) USING HASH  
+	) ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
+
+	-- 创建随机生成函数
+	DELIMITER //
+	CREATE FUNCTION `rand_string`(n INT) RETURNS varchar(255) CHARSET latin1
+	BEGIN 
+	    DECLARE chars_str varchar(100) DEFAULT 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; 
+	    DECLARE return_str varchar(255) DEFAULT '' ;
+	    DECLARE i INT DEFAULT 0; 
+	    WHILE i < n DO 
+	        SET return_str = concat(return_str,substring(chars_str , FLOOR(1 + RAND()*62 ),1)); 
+	        SET i = i +1; 
+	    END WHILE; 
+	    RETURN return_str; 
+	END //
+
+	-- 创建存储过程
+	DELIMITER //
+	CREATE  PROCEDURE `add_vote_memory`(n int,len int)
+	BEGIN  
+	  DECLARE i INT DEFAULT 1;
+	    WHILE (i <= n ) DO
+	      INSERT into vote_record_memory(user_id,vote_id,group_id,create_time ) VALUEs (rand_string(len),FLOOR(RAND() * 1000),FLOOR(RAND() * 100) ,now() );
+	            set i=i+1;
+	    END WHILE;
+	END //
+
+	-- 执行存储过程 生成 30 万条数据，user_id 长度 8 个字符
+	CALL add_vote_memory(300000,8);
+
+	select count(*) from vote_record_memory;
+
+	-- 将内存表的数据插入到普通表：
+	INSERT into vote_record SELECT * from  vote_record_memory;
+
+	select count(*) from vote_record;
+
+	-- 删除内存表的数据：
+	delete from vote_record_memory;
+
+	-- 蠕虫复制 可以多次执行存储过程,减少数据重复
+	INSERT INTO vote_record(user_id,vote_id,group_id,create_time) SELECT user_id,vote_id,group_id,NOW() FROM vote_record;
